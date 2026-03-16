@@ -1,28 +1,29 @@
 package greetings
 
 import (
-    "fmt"
-    "errors"
-    "math/rand"
+	"errors"
+	"fmt"
+	"math/rand"
 )
+
 // Hello returns a greeting for the named person.
-func Hello(name string) (string,error) {
-    if name == "" {
-        return "", errors.New("empty name")        
-    }
+func Hello(name string) (string, error) {
+	if name == "" {
+		return "",
 
-   
+			errors.New("empty name")
+	}
 
-    // Return a greeting that embeds the name in a message.
-    message := fmt.Sprintf(randomFormat(), name)
-    return message,nil
+	// Return a greeting that embeds the name in a message.
+	message := fmt.Sprintf(randomFormat(), name)
+	return message, nil
 }
 
 func randomFormat() string {
-     messages := []string{
-        "Hi, %v. Welcome!",
-        "Great to see you, %v!",
-        "Hail, %v! Well met!",
-    }
-    return messages[rand.Intn(len(messages))]
+	messages := []string{
+		"Hi, %v. Welcome!",
+		"Great to see you, %v!",
+		"Hail, %v! Well met!",
+	}
+	return messages[rand.Intn(len(messages))]
 }
